@@ -12,8 +12,5 @@ global.resetGame = (event) => {
 }
 
 const resetTags = (event) {
-	Object.keys(global.tags).forEach(key => {
-		runCommand(event,'tag @a remove '+key);
-		tags[key]="no";
-	});
+	
 }
