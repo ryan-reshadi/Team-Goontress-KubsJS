@@ -2,6 +2,8 @@
 
 ServerEvents.customCommand('InitFreezeTag', event => {
     global.taggleable = true;
+	global.tags.tagger = "yes";
+	global.tags.tagged = "yes";
     runCommand(event, `gamerule pvp true`);
     runCommand(event, `gamerule fallDamage false`);
     runCommand(event, `difficulty peaceful`);
@@ -17,11 +19,14 @@ ServerEvents.customCommand('InitSpleef', event => {
     event.server.runCommandSilent(`gamerule doDaylightCycle false`)
 
 })
+// Please make sure that all loaded templates have entities saved in the template
 const placeTemplate = (event, templateName) => {
     runCommand(event, `kill @e[type=!minecraft:player]`);
     switch (templateName) {
         case "minigames":
             event.server.runCommandSilent(`/place template minecraft:map -50 -26 -17`)
+		case "captflag":
+			event.server.runCommandSilent('/place template minecraft:captflag')
     }
     
 }
