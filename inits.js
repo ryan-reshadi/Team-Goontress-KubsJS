@@ -1,6 +1,4 @@
-global.runcommand = (event, command) => {
-    event.server.runCommandSilent(command)
-}
+
 
 ServerEvents.customCommand('InitFreezeTag', event => {
     global.taggleable = true;
