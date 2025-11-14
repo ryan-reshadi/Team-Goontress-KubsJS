@@ -1,0 +1,4 @@
+ServerEvents.customCommand('TickFreezeTag', event => {
+    
+})
+
