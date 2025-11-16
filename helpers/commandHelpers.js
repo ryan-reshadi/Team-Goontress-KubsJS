@@ -3,5 +3,5 @@ global.runcommand = (event, command) => {
 }
 
 global.runKubeJS = (event, command) => {
-    event.runCommandSilent("kubejs custom_command " + command);
+    event.server.runCommandSilent("kubejs custom_command " + command);
 }

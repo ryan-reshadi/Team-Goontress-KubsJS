@@ -1,22 +1,22 @@
-global.noDrop = false;
+global.dropabble = false;
 ServerEvents.tick(event => {
-    if (!event.server || !global.noDrop) return
+    if (!event.server || global.dropabble) return
 
     event.server.allLevels.forEach(level => {
         level.getEntities().forEach(entity => {
-            
+
             // Check if the entity is a dropped item
             if (entity.type === 'minecraft:item') {
-                
+
                 // Get the itemstack (the actual item data)
                 const itemStack = entity.item
-                
+
                 // Try to find the player who dropped it (the owner)
                 const droppingPlayer = entity.owner
-                
+
                 // Only act if we can identify the owner AND the item is not empty
                 if (droppingPlayer) {
-                    
+
                     // 1. Give the item back to the player
                     droppingPlayer.give(itemStack)
 
@@ -47,11 +47,11 @@ ServerEvents.commandRegistry(event => {
 
     // Helper function
     const enableDropping = (state) => {
-        global.noDrop = state;
+        global.dropabble = state;
         return 1
     }
     const toggleDropping = () => {
-        global.noDrop = !global.noDrop;
+        global.dropabble = !global.dropabble;
         return 1
     }
 })

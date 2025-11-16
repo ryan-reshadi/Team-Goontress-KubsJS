@@ -1,5 +1,5 @@
-global.joinLogic = (event, playerName) => {}
-global.leaveLogic = (event, playerName) => {}
+global.joinLogic = (event, playerName) => { }
+global.leaveLogic = (event, playerName) => { }
 
 PlayerEvents.loggedIn(event => {
     global.joinLogic(event, event.player.username);
