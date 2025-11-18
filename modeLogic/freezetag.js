@@ -68,3 +68,7 @@ ItemEvents.entityInteracted(event => {
 
     event.cancel();
 })
+
+global.freezeTagReset = (event) => {
+    taggleable = false;
+}

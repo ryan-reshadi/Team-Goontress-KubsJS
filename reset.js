@@ -11,4 +11,5 @@ global.resetGame = (event) => {
     runCommand(event, '/execute in minecraft:overworld run tp @a[team=!Spectator] -94.37 1.00 -41.34 -889.01 2.52');
 
     resetTags(event);
+    
 }

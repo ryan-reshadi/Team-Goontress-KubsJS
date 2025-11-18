@@ -20,7 +20,8 @@ ServerEvents.commandRegistry(event => {
         .then(Commands.argument('player', Arguments.PLAYER.create(event))
             .executes(ctx => {
                 const player = Arguments.PLAYER.getResult(ctx, 'player');
-                votes[player.username] += 1;
+                votes[player.username] ++;
+                event.player
                 ctx.source.player.tell("You voted for " + player.username);
                 return 1;
             }) // Toggle flight for the player included in the `target` argument
@@ -28,6 +29,20 @@ ServerEvents.commandRegistry(event => {
     )
 
 })
+
+global.tallyVotes = (event) => {
+    var max = 0;
+    var name = '';
+    for (const key in votes) {
+    // 'key' holds the property name (e.g., 'apple', 'banana')
+    if (votes[key]>max){
+        max = votes[key]
+        name = key
+    }
+    return name;
+}
+}
+
 ServerEvents.commandRegistry(event => {
 
 })
